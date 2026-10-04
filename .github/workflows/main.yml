@@ -1,12 +1,15 @@
+# This is a basic workflow to help you get started with Actions
 name: Add two numbers
-on:
-  workflow_dispatch:
-    inputs:
-      num1:
-        description: "First number"
-        required: true
-        default: "0"
-      num2:
-        description: "Second number"
-        required: true
-        default: "0"
+jobs:
+  add_numbers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add two numbers
+        id: add
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const num1 = ${{ github.event.inputs.num1 }};
+            const num2 = ${{ github.event.inputs.num2 }};
+            const result = parseInt(num1) + parseInt(num2);
+            console.log(`The sum of ${num1} and ${num2} is ${result}`);
