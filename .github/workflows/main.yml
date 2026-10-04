@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       num1:
-        description: 'First number'
+        description: "First number"
         required: true
-        default: '0'
+        default: "0"
       num2:
-        description: 'Second number'
+        description: "Second number"
         required: true
-        default: '0'
+        default: "0"
